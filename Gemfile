@@ -14,8 +14,13 @@ gem 'simple_form'
 # page
 gem 'kaminari'
 
+<<<<<<< HEAD
 gem 'devise'
 gem 'devise-i18n'
+=======
+# REST api
+gem 'grape', '~> 0.4.1'
+>>>>>>> add wechat and wechathelper file
 
 # Gems used only for assets and not required
 # in production environments by default.
