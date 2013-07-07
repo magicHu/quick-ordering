@@ -1,5 +1,7 @@
 QuickOrdering::Application.routes.draw do
 
+  devise_for :users
+
   resources :restaurants do
     resources :categories
 

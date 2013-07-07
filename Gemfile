@@ -14,6 +14,9 @@ gem 'simple_form'
 # page
 gem 'kaminari'
 
+gem 'devise'
+gem 'devise-i18n'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
