@@ -5,7 +5,7 @@ class CreateFoods < ActiveRecord::Migration
       t.integer :restaurant_id
       t.string :name
       t.text :desc
-      t.integer :price
+      t.decimal :price
 
       t.timestamps
     end

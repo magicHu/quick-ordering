@@ -6,6 +6,8 @@ QuickOrdering::Application.routes.draw do
     resources :categories
 
     resources :foods
+
+    resources :orders
   end
 
   mount Wechat::WechatAPI => '/'

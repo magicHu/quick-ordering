@@ -3,4 +3,5 @@ class Restaurant < ActiveRecord::Base
 
   has_many :categories
   has_many :foods
+  has_many :orders
 end
