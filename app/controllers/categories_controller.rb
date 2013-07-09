@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.all
+    @categories = @restaurant.categories
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,7 +16,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @category = Category.find(params[:id])
+    @category = @restaurant.categories.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -37,13 +37,13 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
-    @category = Category.find(params[:id])
+    @category = @restaurant.categories.find(params[:id])
   end
 
   # POST /categories
   # POST /categories.json
   def create
-    @category = Category.new(params[:category])
+    @category = @restaurant.categories.build(params[:category])
 
     respond_to do |format|
       if @category.save
@@ -59,11 +59,11 @@ class CategoriesController < ApplicationController
   # PUT /categories/1
   # PUT /categories/1.json
   def update
-    @category = Category.find(params[:id])
+    @category = @restaurant.categories.find(params[:id])
 
     respond_to do |format|
       if @category.update_attributes(params[:category])
-        format.html { redirect_to restaurant_categorys_url(@restaurant), notice: 'Category was successfully updated.' }
+        format.html { redirect_to restaurant_categories_url(@restaurant), notice: 'Category was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -75,7 +75,7 @@ class CategoriesController < ApplicationController
   # DELETE /categories/1
   # DELETE /categories/1.json
   def destroy
-    @category = Category.find(params[:id])
+    @category = @restaurant.categories.find(params[:id])
     @category.destroy
 
     respond_to do |format|

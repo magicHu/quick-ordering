@@ -5,7 +5,7 @@ class FoodsController < ApplicationController
   # GET /foods
   # GET /foods.json
   def index
-    @foods = Food.all
+    @foods = @restaurant.foods.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,7 +16,7 @@ class FoodsController < ApplicationController
   # GET /foods/1
   # GET /foods/1.json
   def show
-    @food = Food.find(params[:id])
+    @food = @restaurant.foods.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -37,13 +37,13 @@ class FoodsController < ApplicationController
 
   # GET /foods/1/edit
   def edit
-    @food = Food.find(params[:id])
+    @food = @restaurant.foods.find(params[:id])
   end
 
   # POST /foods
   # POST /foods.json
   def create
-    @food = Food.new(params[:food])
+    @food = @restaurant.foods.build(params[:food])
 
     respond_to do |format|
       if @food.save
@@ -59,7 +59,7 @@ class FoodsController < ApplicationController
   # PUT /foods/1
   # PUT /foods/1.json
   def update
-    @food = Food.find(params[:id])
+    @food = @restaurant.foods.find(params[:id])
 
     respond_to do |format|
       if @food.update_attributes(params[:food])
@@ -75,7 +75,7 @@ class FoodsController < ApplicationController
   # DELETE /foods/1
   # DELETE /foods/1.json
   def destroy
-    @food = Food.find(params[:id])
+    @food = @restaurant.foods.find(params[:id])
     @food.destroy
 
     respond_to do |format|

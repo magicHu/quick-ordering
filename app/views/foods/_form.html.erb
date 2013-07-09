@@ -2,7 +2,7 @@
   <%= f.input :name %>
   <%= f.input :desc, :input_html => { :rows => 6 } %>
   <%= f.input :price %>
-  <%= f.association :category %>
+  <%= f.association :category, collection: @restaurant.categories %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
