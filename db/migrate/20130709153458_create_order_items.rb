@@ -5,7 +5,6 @@ class CreateOrderItems < ActiveRecord::Migration
       t.string :food_id
       t.decimal :food_price
       t.integer :quantity
-      t.decimal :total_price
 
       t.timestamps
     end

@@ -35,9 +35,8 @@ ActiveRecord::Schema.define(:version => 20130709153458) do
     t.string   "food_id"
     t.decimal  "food_price"
     t.integer  "quantity"
-    t.decimal  "total_price"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "orders", :force => true do |t|

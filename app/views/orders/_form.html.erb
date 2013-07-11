@@ -1,6 +1,6 @@
 <%= simple_form_for [@restaurant, @order], :html => { :class => 'form-horizontal' } do |f| %>
 
-  <%= f.input :food_ids, collection: @restaurant.foods, as: :select %>
+  <%= f.input :food_ids, collection: @restaurant.foods, as: :check_boxes %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

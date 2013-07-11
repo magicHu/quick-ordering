@@ -16,12 +16,29 @@
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              orders_path, :class => 'btn'  %>
+              restaurant_orders_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_order_path(@order), :class => 'btn' %>
+              edit_restaurant_order_path(@restaurant, @order), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              order_path(@order),
+              restaurant_order_path(@restaurant, @order),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
 </div>
+
+<table class="table">
+  <thead>
+    <th>菜名</th>
+    <th>价格</th>
+    <th>份数</th>
+  </thead>
+  <tbody>
+    <% @order.order_items.each do |order_item| %>
+      <tr>
+        <td><%= order_item.food_name %></td>
+        <td><%= order_item.food_price %></td>
+        <td><%= order_item.quantity %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

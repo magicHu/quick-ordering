@@ -6,7 +6,7 @@ class CreateOrders < ActiveRecord::Migration
       t.string :order_no
       t.date :order_day
       t.integer :order_status, :default => 1
-      t.decimal :total_price
+      t.decimal :total_price, :default => 0
 
       t.timestamps
     end

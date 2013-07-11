@@ -4,6 +4,7 @@
     <small>
       <%= @restaurant.address %>
       <%= link_to '下单', new_restaurant_order_path(@restaurant), :class => 'btn btn-large btn-danger' %>
+      <%= link_to '订单列表', restaurant_orders_path(@restaurant), :class => 'btn btn-info' %>
       <%= link_to '菜单管理', restaurant_foods_path(@restaurant), :class => 'btn btn-info' %>
       <%= link_to '分类管理', restaurant_categories_path(@restaurant), :class => 'btn btn-info' %>
     </small>
