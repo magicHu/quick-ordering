@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130709153458) do
+ActiveRecord::Schema.define(:version => 20130714160914) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -20,12 +20,20 @@ ActiveRecord::Schema.define(:version => 20130709153458) do
     t.datetime "updated_at",    :null => false
   end
 
+  create_table "companies", :force => true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "telephone"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "foods", :force => true do |t|
     t.integer  "category_id"
     t.integer  "restaurant_id"
     t.string   "name"
     t.text     "desc"
-    t.integer  "price"
+    t.decimal  "price"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
@@ -45,9 +53,9 @@ ActiveRecord::Schema.define(:version => 20130709153458) do
     t.string   "order_no"
     t.date     "order_day"
     t.integer  "order_status",  :default => 1
-    t.decimal  "total_price"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.decimal  "total_price",   :default => 0.0
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   create_table "restaurants", :force => true do |t|
@@ -76,6 +84,10 @@ ActiveRecord::Schema.define(:version => 20130709153458) do
     t.string   "unconfirmed_email"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "name"
+    t.string   "telephone"
+    t.string   "weixin_name"
+    t.integer  "company_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

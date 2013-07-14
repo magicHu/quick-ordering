@@ -1,6 +1,8 @@
 QuickOrdering::Application.routes.draw do
 
-  devise_for :users
+
+  devise_for :users, :controllers => {:users => "users"} do
+  end
 
   resources :restaurants do
     resources :categories
@@ -9,6 +11,11 @@ QuickOrdering::Application.routes.draw do
 
     resources :orders
   end
+
+  resources :companies
+
+  get 'setting', to: 'users#setting'
+  put 'update_setting', to: 'users#update_setting'
 
   mount Wechat::WechatAPI => '/'
 
